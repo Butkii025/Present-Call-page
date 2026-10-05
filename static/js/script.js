@@ -1,11 +1,11 @@
 /**
  * Present Call - Enterprise AI Attendance Management System
- * Interactive Frontend Engine
+ * Interactive Frontend Engine with Adaptive Responsive & Device-Aware System
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
-    // 1. SCROLL REVEAL OBSERVER (Preserves original behavior)
+    // 1. SCROLL REVEAL OBSERVER
     // ==========================================
     const observerOptions = {
         threshold: 0.08,
@@ -53,13 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 3. TOAST NOTIFICATION SYSTEM (Section 8)
+    // 3. TOAST NOTIFICATION SYSTEM (Section 8 & 14)
     // ==========================================
     const toastContainer = document.getElementById('toastContainer');
     window.showToast = function(message, type = 'success') {
         if (!toastContainer) return;
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
+        toast.setAttribute('role', 'alert');
         
         let iconSvg = '';
         if (type === 'success') {
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.innerHTML = `
             <div class="toast-icon">${iconSvg}</div>
             <div class="toast-body">${message}</div>
-            <button class="toast-close" aria-label="Close">&times;</button>
+            <button class="toast-close" aria-label="Close notification">&times;</button>
         `;
 
         toastContainer.appendChild(toast);
@@ -90,8 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // 4. SAAS PORTAL TABS SWITCHER (Section 5)
+    // 4. SAAS PORTAL TABS SWITCHER & MOBILE SIDEBAR (Section 2 & 5)
     // ==========================================
+    const saasSidebar = document.getElementById('saasSidebar');
+    const saasSidebarToggle = document.getElementById('saasSidebarToggle');
+    const saasSidebarClose = document.getElementById('saasSidebarClose');
+    const saasSidebarBackdrop = document.getElementById('saasSidebarBackdrop');
     const sidebarLinks = document.querySelectorAll('.saas-sidebar .sidebar-link[data-view]');
     const dashboardViews = document.querySelectorAll('.dashboard-view');
     const breadcrumbCurrent = document.getElementById('breadcrumbCurrent');
@@ -104,6 +109,33 @@ document.addEventListener('DOMContentLoaded', () => {
         'students': 'Enrolled Students Directory',
         'settings': 'Platform & AI Settings'
     };
+
+    const openSaasSidebar = () => {
+        if (saasSidebar) saasSidebar.classList.add('mobile-open');
+        if (saasSidebarBackdrop) saasSidebarBackdrop.classList.add('active');
+        document.body.classList.add('dashboard-menu-open');
+    };
+
+    const closeSaasSidebar = () => {
+        if (saasSidebar) saasSidebar.classList.remove('mobile-open');
+        if (saasSidebarBackdrop) saasSidebarBackdrop.classList.remove('active');
+        document.body.classList.remove('dashboard-menu-open');
+    };
+
+    if (saasSidebarToggle) {
+        saasSidebarToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openSaasSidebar();
+        });
+    }
+
+    if (saasSidebarClose) {
+        saasSidebarClose.addEventListener('click', closeSaasSidebar);
+    }
+
+    if (saasSidebarBackdrop) {
+        saasSidebarBackdrop.addEventListener('click', closeSaasSidebar);
+    }
 
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -131,11 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (targetView === 'voice-id') {
                 initVoiceVisualizer();
             }
+
+            // Close mobile sidebar drawer after selection
+            closeSaasSidebar();
         });
     });
 
     // ==========================================
-    // 5. ATTENDANCE TABLE SEARCH & FILTERING (Section 6)
+    // 5. ATTENDANCE TABLE SEARCH & FILTERING (Section 5)
     // ==========================================
     const searchInput = document.getElementById('tableSearchInput');
     const statusFilter = document.getElementById('statusFilter');
@@ -178,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 6. CSV EXPORT FUNCTIONALITY (Section 6)
+    // 6. CSV EXPORT FUNCTIONALITY (Section 5)
     // ==========================================
     const exportCsvBtn = document.getElementById('exportCsvBtn');
     if (exportCsvBtn) {
@@ -234,6 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let width = simCanvas.width = simCanvas.offsetWidth || 600;
         let height = simCanvas.height = simCanvas.offsetHeight || 420;
 
+        window.addEventListener('resize', () => {
+            if (simCanvas && (!videoEl || videoEl.style.display !== 'block')) {
+                width = simCanvas.width = simCanvas.offsetWidth || 600;
+                height = simCanvas.height = simCanvas.offsetHeight || 420;
+            }
+        });
+
         // Particle nodes simulating biometric feature points
         const points = [];
         const numPoints = 28;
@@ -283,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
             ctx.lineWidth = 1.5;
             ctx.beginPath();
-            ctx.ellipse(width / 2, height * 0.48, 85, 115, 0, 0, Math.PI * 2);
+            ctx.ellipse(width / 2, height * 0.48, Math.min(85, width * 0.2), Math.min(115, height * 0.28), 0, 0, Math.PI * 2);
             ctx.stroke();
 
             // Connect nearest nodes
@@ -296,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Restrict to face area
                 const dx = p.x - (width / 2);
                 const dy = p.y - (height * 0.48);
-                if (Math.hypot(dx, dy) > 95) {
+                if (Math.hypot(dx, dy) > Math.min(95, width * 0.22)) {
                     p.vx *= -1;
                     p.vy *= -1;
                 }
@@ -331,8 +373,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 cameraStream = null;
                 videoEl.style.display = 'none';
                 if (simCanvas) simCanvas.style.display = 'block';
-                toggleWebcamBtn.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> Enable Live Webcam`;
-                showToast('Switched to high-fidelity AI Biometric Simulator', 'info');
+                toggleWebcamBtn.innerHTML = `<span class="icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></span><span>Enable Webcam</span>`;
+                showToast('Switched to AI Biometric Simulator', 'info');
             } else {
                 try {
                     cameraStream = await navigator.mediaDevices.getUserMedia({ video: { width: 1280, height: 720 } });
@@ -340,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     videoEl.play();
                     videoEl.style.display = 'block';
                     if (simCanvas) simCanvas.style.display = 'none';
-                    toggleWebcamBtn.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> Stop Webcam`;
+                    toggleWebcamBtn.innerHTML = `<span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg></span><span>Stop Webcam</span>`;
                     showToast('Live camera feed connected to AI Vision Pipeline', 'success');
                 } catch (err) {
                     showToast('Camera permission denied or camera not available. Using AI Biometric Simulator.', 'info');
@@ -356,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isProcessing) return;
             isProcessing = true;
             markAttendanceBtn.disabled = true;
-            markAttendanceBtn.innerHTML = `<svg class="icon spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"></circle></svg> Scanning Face...`;
+            markAttendanceBtn.innerHTML = `<span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"></circle></svg></span><span>Scanning Face...</span>`;
 
             if (aiStatusBadge) aiStatusBadge.textContent = 'Analyzing Facial Geometry...';
             if (hudTarget) hudTarget.classList.remove('target-verified');
@@ -376,10 +418,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (hudTarget) hudTarget.classList.add('target-verified');
                 if (hudTag) {
                     hudTag.classList.add('tag-verified');
-                    hudTag.innerHTML = `<span>✓</span> Verified: Aarav Sharma (99.8% Match)`;
+                    hudTag.innerHTML = `<span>✓</span> Verified: Priyanshu Vijay (99.8% Match)`;
                 }
                 if (aiStatusBadge) aiStatusBadge.textContent = 'Biometric Identity Confirmed ✓';
-                showToast('✓ Attendance verified and marked for Aarav Sharma (ID: CS2026-042)', 'success');
+                showToast('✓ Attendance verified and marked for Priyanshu Vijay (ID: CS2026-001)', 'success');
 
                 // Update summary card counter if present
                 const presentCountEl = document.getElementById('countPresentToday');
@@ -394,21 +436,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newItem = document.createElement('div');
                     newItem.className = 'activity-item';
                     newItem.innerHTML = `
-                        <div class="activity-avatar" style="background:#dbeafe; color:#1d4ed8;">AS</div>
+                        <div class="activity-avatar" style="background:#ecfdf5; color:#059669;">PV</div>
                         <div class="activity-details">
-                            <div class="activity-name">Aarav Sharma</div>
-                            <div class="activity-meta"><span>CS-401</span> • <span>Just now</span> • <span>FaceID (99.8%)</span></div>
+                            <div class="activity-name verification-name" title="Priyanshu Vijay">Priyanshu Vijay</div>
+                            <div class="activity-meta">
+                                <span class="activity-subtag">AI Verified</span>
+                                <span>&bull;</span>
+                                <span>CS-401</span>
+                                <span>&bull;</span>
+                                <span>Just now</span>
+                                <span>&bull;</span>
+                                <span class="activity-method">FaceID (99.8%)</span>
+                            </div>
                         </div>
-                        <span class="activity-badge">✓ Present</span>
+                        <span class="activity-badge badge-present">&check; Present</span>
                     `;
                     activityStream.prepend(newItem);
                 }
 
                 markAttendanceBtn.disabled = false;
-                markAttendanceBtn.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Attendance Marked!`;
+                markAttendanceBtn.innerHTML = `<span class="icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Attendance Marked!</span>`;
 
                 setTimeout(() => {
-                    markAttendanceBtn.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Mark Attendance`;
+                    markAttendanceBtn.innerHTML = `<span class="icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Mark Attendance</span>`;
                     isProcessing = false;
                 }, 2500);
             }, 1800);
@@ -425,9 +475,16 @@ document.addEventListener('DOMContentLoaded', () => {
         voiceVisualizerInit = true;
 
         const ctx = canvas.getContext('2d');
-        const width = canvas.width = canvas.offsetWidth || 300;
-        const height = canvas.height = canvas.offsetHeight || 60;
+        let width = canvas.width = canvas.offsetWidth || 300;
+        let height = canvas.height = canvas.offsetHeight || 60;
         let step = 0;
+
+        window.addEventListener('resize', () => {
+            if (canvas) {
+                width = canvas.width = canvas.offsetWidth || 300;
+                height = canvas.height = canvas.offsetHeight || 60;
+            }
+        });
 
         function renderWave() {
             ctx.clearRect(0, 0, width, height);
@@ -455,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 9. SCREENSHOT LIGHTBOX MODAL
+    // 9. SCREENSHOT LIGHTBOX MODAL (Section 8)
     // ==========================================
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -483,29 +540,118 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightboxModal.classList.remove('active');
             }
         });
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-                lightboxModal.classList.remove('active');
+    // ==========================================
+    // 10. MAIN TOP NAVBAR MOBILE DRAWER
+    // ==========================================
+    const navToggle = document.getElementById('navMobileToggle');
+    const navClose = document.getElementById('navMobileClose');
+    const navLinks = document.getElementById('mainNavLinks');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    const openNavMenu = () => {
+        if (navLinks) navLinks.classList.add('mobile-open');
+        if (navBackdrop) navBackdrop.classList.add('active');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-menu-open');
+    };
+
+    const closeNavMenu = () => {
+        if (navLinks) navLinks.classList.remove('mobile-open');
+        if (navBackdrop) navBackdrop.classList.remove('active');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-menu-open');
+    };
+
+    if (navToggle) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navLinks && navLinks.classList.contains('mobile-open')) {
+                closeNavMenu();
+            } else {
+                openNavMenu();
             }
         });
     }
 
-    // ==========================================
-    // 10. MOBILE NAVIGATION DRAWER TOGGLE
-    // ==========================================
-    const navToggle = document.getElementById('navMobileToggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-open');
-        });
+    if (navClose) {
+        navClose.addEventListener('click', closeNavMenu);
+    }
 
-        // Close on link click
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeNavMenu);
+    }
+
+    if (navLinks) {
         navLinks.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+            a.addEventListener('click', closeNavMenu);
         });
     }
 
-    console.log('Present Call Modern SaaS Dashboard & AI Biometrics Engine Active');
+    // Global ESC Key Handler for Modals and Drawers
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (lightboxModal && lightboxModal.classList.contains('active')) {
+                lightboxModal.classList.remove('active');
+            }
+            closeNavMenu();
+            closeSaasSidebar();
+        }
+    });
+
+    // ==========================================
+    // 11. DEVICE-AWARE BACK TO TOP SYSTEM (Sections 11 - 16)
+    // ==========================================
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+        let isScrollThrottled = false;
+        const scrollThreshold = 350;
+
+        const updateBackToTopState = () => {
+            const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            
+            if (currentScrollY > scrollThreshold) {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('visible');
+                    backToTopBtn.setAttribute('aria-hidden', 'false');
+                    backToTopBtn.setAttribute('tabindex', '0');
+                }
+            } else {
+                if (backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.remove('visible');
+                    backToTopBtn.setAttribute('aria-hidden', 'true');
+                    backToTopBtn.setAttribute('tabindex', '-1');
+                }
+            }
+            isScrollThrottled = false;
+        };
+
+        // Passive scroll listener with requestAnimationFrame throttling for 60fps performance
+        window.addEventListener('scroll', () => {
+            if (!isScrollThrottled) {
+                window.requestAnimationFrame(updateBackToTopState);
+                isScrollThrottled = true;
+            }
+        }, { passive: true });
+
+        // Click handler: smooth scroll back to top with reduced motion respect
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            });
+
+            // Cleanly blur button so focus ring doesn't stick
+            backToTopBtn.blur();
+        });
+
+        // Initial check on load
+        updateBackToTopState();
+    }
+
+    console.log('Present Call Enhanced Responsive Engine & Back-to-Top System Initialized');
 });
