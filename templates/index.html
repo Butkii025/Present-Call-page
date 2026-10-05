@@ -4,90 +4,914 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PresentCall | AI Powered Attendance System</title>
+    <title>Present Call | Enterprise AI Attendance & Biometrics Platform</title>
+    <meta name="description" content="Next-generation AI-powered attendance system utilizing multi-face computer vision and sequential voice biometrics to eliminate proxy attendance.">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/app_logo.png') }}">
 </head>
 
 <body>
-    <nav class="navbar">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar" id="topNavbar">
         <div class="logo">
-            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="PresentCall Logo" style="height: 32px;">
-            <div class="logo-text">PresentCall</div>
+            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo">
+            <div class="logo-text">
+                Present Call
+                <span class="logo-badge">AI 2.0</span>
+            </div>
         </div>
+
         <div class="nav-links">
-            <a href="#">Home</a>
+            <a href="#">Overview</a>
+            <a href="#demo-portal">Live Dashboard</a>
             <a href="#features">Features</a>
-            <a href="#journey">Journey</a>
-            <a href="#tech">Tech Stack</a>
+            <a href="#journey">Teacher Flow</a>
+            <a href="#student-journey">Student Flow</a>
+            <a href="#tech">Architecture</a>
         </div>
+
         <div class="nav-cta">
-            <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-pill">Start AI Attendance <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M9 5l7 7-7 7" />
-                </svg></a>
+            <a href="#demo-portal" class="btn-secondary-nav">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </span>
+                Interactive Demo
+            </a>
+            <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-pill" id="launchStreamlitBtn">
+                <span>Launch Streamlit App</span>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </span>
+            </a>
+            <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
         <div class="badge">
-            Welcome to PresentCall
+            <span class="badge-dot"></span>
+            AI Biometrics Engine v2.4 Active &bull; Supabase Realtime Sync
         </div>
 
-        <h1>AI Powered<br>Attendance <span>System</span></h1>
+        <h1>AI-Powered Attendance Management for <span>Modern Institutions</span></h1>
 
-        <p>Revolutionizing the classroom with next-gen computer vision and voice biometrics. Trusted by educators for
-            speed, accuracy, and security.</p>
+        <p>Eliminate proxy attendance with real-time multi-face computer vision and sequential voice ID biometrics. Built for universities, classrooms, and enterprise workplaces.</p>
 
         <div class="hero-actions">
-            <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-cta">Start AI Attendance <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="3">
-                    <path d="M9 5l7 7-7 7" />
-                </svg></a>
-            <a href="#journey" class="link-action">Explore Journey</a>
+            <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-cta">
+                <span>Start AI Attendance</span>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </span>
+            </a>
+            <a href="#demo-portal" class="link-action">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </span>
+                <span>Experience Interactive Dashboard</span>
+            </a>
         </div>
 
+        <!-- Metrics Strip -->
+        <div class="hero-metrics">
+            <div class="metric-card">
+                <div class="metric-value">99.8<span>%</span></div>
+                <div class="metric-label">Biometric Precision</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">&lt;450<span>ms</span></div>
+                <div class="metric-label">Multi-Face Latency</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">100<span>%</span></div>
+                <div class="metric-label">Proxy Elimination</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">0<span>x</span></div>
+                <div class="metric-label">Hardware Overheads</div>
+            </div>
+        </div>
     </header>
 
-    <section id="features" class="features">
-        <h2>Innovative Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="f-icon-box">📸</div>
-                <h3>AI Face Analysis</h3>
-                <p>Advanced neural networks recognize every student's face from a single class photo, making attendance
-                    instant and accurate.</p>
+    <!-- ==========================================================================
+         LIVE INTERACTIVE SAAS DASHBOARD & AI STUDIO (Sections 5, 6, 7)
+         ========================================================================== -->
+    <section id="demo-portal" class="portal-section">
+        <div class="portal-container">
+            <div class="portal-header-area">
+                <span class="section-tag">Interactive Platform Simulation</span>
+                <h2>Enterprise Attendance & AI Verification Portal</h2>
+                <p>Test the full dashboard workflow below: explore real-time KPIs, search and filter the attendance table, export CSV records, or test the live AI facial scanning studio.</p>
             </div>
-            <div class="feature-card">
-                <div class="f-icon-box">🎙️</div>
-                <h3>Sequential Voice ID</h3>
-                <p>Students say "Present" one-by-one, and our audio-AI matches their voice biometrics against stored
-                    embeddings in real-time.</p>
-            </div>
-            <div class="feature-card">
-                <div class="f-icon-box">📱</div>
-                <h3>QR-Driven Roster</h3>
-                <p>Course codes generate unique QR codes for instant student enrollment. No more manual entry or data
-                    management headaches.</p>
+
+            <!-- Modern SaaS Window Mockup -->
+            <div class="saas-window">
+                <!-- Browser-like Top Chrome -->
+                <div class="window-topbar">
+                    <div class="window-dots">
+                        <span class="window-dot dot-red"></span>
+                        <span class="window-dot dot-yellow"></span>
+                        <span class="window-dot dot-green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span class="icon" style="width:14px; height:14px; color:#38bdf8;">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </span>
+                        app.presentcall.ai &mdash; Production Attendance Hub (Session Active)
+                    </div>
+                    <div class="window-status-pill">
+                        <span class="badge-dot" style="width:6px; height:6px;"></span>
+                        Engine Online
+                    </div>
+                </div>
+
+                <div class="saas-layout">
+                    <!-- Left Sidebar (Section 5) -->
+                    <aside class="saas-sidebar">
+                        <div class="sidebar-brand">
+                            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call">
+                            <span class="sidebar-brand-name">Present Call</span>
+                        </div>
+
+                        <div class="sidebar-nav">
+                            <div class="sidebar-section-title">Operations</div>
+                            <button class="sidebar-link active" data-view="overview">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                </span>
+                                <span>Dashboard</span>
+                            </button>
+                            <button class="sidebar-link" data-view="attendance">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                </span>
+                                <span>Attendance</span>
+                                <span class="sidebar-link-badge">428</span>
+                            </button>
+                            <button class="sidebar-link" data-view="ai-camera">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                </span>
+                                <span>AI Attendance</span>
+                            </button>
+                            <button class="sidebar-link" data-view="voice-id">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                                </span>
+                                <span>Voice ID Roll-Call</span>
+                            </button>
+
+                            <div class="sidebar-section-title" style="margin-top: 16px;">Management</div>
+                            <button class="sidebar-link" data-view="students">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </span>
+                                <span>Students Directory</span>
+                            </button>
+                            <button class="sidebar-link" data-view="settings">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                </span>
+                                <span>Settings</span>
+                            </button>
+                        </div>
+
+                        <div class="sidebar-footer">
+                            <div class="user-profile-badge">
+                                <div class="user-avatar">DR</div>
+                                <div class="user-info">
+                                    <div class="user-name">Dr. Rajesh Kumar</div>
+                                    <div class="user-role">CS Department Head</div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- SaaS Main Content Panel -->
+                    <main class="saas-main">
+                        <!-- Top Bar (Section 5) -->
+                        <div class="dashboard-topbar">
+                            <div class="topbar-breadcrumb">
+                                <span>Present Call</span>
+                                <span>/</span>
+                                <strong id="breadcrumbCurrent">Executive Overview</strong>
+                            </div>
+
+                            <div class="topbar-actions">
+                                <div class="date-indicator">
+                                    <span class="icon" style="width:14px; height:14px; color:var(--pc-blue-500);">
+                                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    </span>
+                                    <span id="liveDashboardDate">Today, Oct 6</span>
+                                </div>
+
+                                <button class="btn-icon-topbar" onclick="showToast('Notification center: 3 new students enrolled in CS-401', 'info')" aria-label="Notifications">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                    </span>
+                                    <span class="notification-count">3</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 1: EXECUTIVE DASHBOARD ================= -->
+                        <div class="dashboard-view active" id="view-overview">
+                            <!-- 4 KPI Summary Cards (Section 5) -->
+                            <div class="summary-cards-grid">
+                                <div class="summary-card card-total">
+                                    <div class="summary-card-header">
+                                        <span class="summary-card-title">Total Enrolled</span>
+                                        <div class="summary-card-icon">
+                                            <span class="icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-body">
+                                        <div class="summary-card-number">428</div>
+                                        <div class="summary-card-trend trend-up">
+                                            <span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+                                            +14 new
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-footer">Across 6 active engineering courses</div>
+                                </div>
+
+                                <div class="summary-card card-present">
+                                    <div class="summary-card-header">
+                                        <span class="summary-card-title">Present Today</span>
+                                        <div class="summary-card-icon">
+                                            <span class="icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-body">
+                                        <div class="summary-card-number" id="countPresentToday">392</div>
+                                        <div class="summary-card-trend trend-up">
+                                            <span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+                                            91.6%
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-footer">Biometrically verified via AI FaceID &amp; Voice</div>
+                                </div>
+
+                                <div class="summary-card card-absent">
+                                    <div class="summary-card-header">
+                                        <span class="summary-card-title">Absent Today</span>
+                                        <div class="summary-card-icon">
+                                            <span class="icon"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-body">
+                                        <div class="summary-card-number">24</div>
+                                        <div class="summary-card-trend trend-down">
+                                            <span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg></span>
+                                            -6 vs avg
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-footer">Automated alerts sent to guardians</div>
+                                </div>
+
+                                <div class="summary-card card-late">
+                                    <div class="summary-card-header">
+                                        <span class="summary-card-title">Late Arrivals</span>
+                                        <div class="summary-card-icon">
+                                            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-body">
+                                        <div class="summary-card-number">12</div>
+                                        <div class="summary-card-trend trend-up">
+                                            <span>2.8%</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-card-footer">Checked in 10+ mins after lecture start</div>
+                                </div>
+                            </div>
+
+                            <!-- Charts & Live Feed Grid -->
+                            <div class="dashboard-grid-dual">
+                                <div class="panel-card">
+                                    <div class="panel-header">
+                                        <div>
+                                            <div class="panel-title">Weekly Attendance Rate</div>
+                                            <div class="panel-subtitle">Average class participation across CS semester</div>
+                                        </div>
+                                        <span class="badge-status badge-present">Avg 92.4%</span>
+                                    </div>
+
+                                    <div class="attendance-chart-wrap">
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct">89%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 89%;"></div></div>
+                                            <div class="chart-bar-label">Mon</div>
+                                        </div>
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct">94%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 94%;"></div></div>
+                                            <div class="chart-bar-label">Tue</div>
+                                        </div>
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct">91%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 91%;"></div></div>
+                                            <div class="chart-bar-label">Wed</div>
+                                        </div>
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct">96%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 96%;"></div></div>
+                                            <div class="chart-bar-label">Thu</div>
+                                        </div>
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct">88%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 88%;"></div></div>
+                                            <div class="chart-bar-label">Fri</div>
+                                        </div>
+                                        <div class="chart-bar-group">
+                                            <div class="chart-bar-pct" style="color:var(--pc-blue-600);">92%</div>
+                                            <div class="chart-bar-track"><div class="chart-bar-fill bar-today" style="height: 92%;"></div></div>
+                                            <div class="chart-bar-label" style="font-weight:700; color:var(--pc-text-heading);">Today</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel-card">
+                                    <div class="panel-header">
+                                        <div>
+                                            <div class="panel-title">Real-Time Verification Feed</div>
+                                            <div class="panel-subtitle">Instant biometric verification logs</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-stream" id="activityStreamList">
+                                        <div class="activity-item">
+                                            <div class="activity-avatar" style="background:#ecfdf5; color:#059669;">PS</div>
+                                            <div class="activity-details">
+                                                <div class="activity-name">Priyanshu Sharma</div>
+                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:02 AM</span> &bull; <span>FaceID (99.6%)</span></div>
+                                            </div>
+                                            <span class="activity-badge">&check; Present</span>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-avatar" style="background:#eff6ff; color:#2563eb;">AK</div>
+                                            <div class="activity-details">
+                                                <div class="activity-name">Ananya Kapoor</div>
+                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:03 AM</span> &bull; <span>VoiceID (98.9%)</span></div>
+                                            </div>
+                                            <span class="activity-badge">&check; Present</span>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-avatar" style="background:#fffbeb; color:#d97706;">RV</div>
+                                            <div class="activity-details">
+                                                <div class="activity-name">Rohan Verma</div>
+                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:14 AM</span> &bull; <span>Late Arrival</span></div>
+                                            </div>
+                                            <span class="activity-badge" style="background:var(--pc-status-late-bg); color:var(--pc-status-late);">! Late</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 2: ATTENDANCE TABLE (Section 6) ================= -->
+                        <div class="dashboard-view" id="view-attendance">
+                            <div class="table-controls-bar">
+                                <div class="filter-group">
+                                    <div class="search-input-wrap">
+                                        <span class="search-icon icon">
+                                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        </span>
+                                        <input type="text" id="tableSearchInput" class="search-input" placeholder="Search student by name or roll number...">
+                                    </div>
+
+                                    <select id="statusFilter" class="select-filter" aria-label="Filter by Attendance Status">
+                                        <option value="all">All Statuses</option>
+                                        <option value="present">✓ Present Only</option>
+                                        <option value="absent">× Absent Only</option>
+                                        <option value="late">! Late Only</option>
+                                        <option value="pending">• Pending Verification</option>
+                                    </select>
+
+                                    <select class="select-filter" aria-label="Filter by Course">
+                                        <option value="all">Course: All Classes</option>
+                                        <option value="cs401">CS-401: AI &amp; Machine Learning</option>
+                                        <option value="cs302">CS-302: Computer Vision</option>
+                                        <option value="cs205">CS-205: Data Structures</option>
+                                    </select>
+                                </div>
+
+                                <div class="table-actions">
+                                    <button class="btn-secondary" id="exportCsvBtn">
+                                        <span class="icon">
+                                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                        </span>
+                                        Export CSV
+                                    </button>
+                                    <button class="btn-primary" onclick="showToast('Roster data refreshed from Supabase Cloud', 'info')">
+                                        <span class="icon">
+                                            <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                                        </span>
+                                        Sync Roster
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="table-card">
+                                <div class="table-responsive">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Student Profile</th>
+                                                <th>Student ID</th>
+                                                <th>Course</th>
+                                                <th>Date</th>
+                                                <th>Check-In</th>
+                                                <th>Check-Out</th>
+                                                <th>Status</th>
+                                                <th>AI Confidence</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="attendanceTableBody">
+                                            <tr data-name="Priyanshu Sharma" data-id="CS2026-001" data-status="present">
+                                                <td>
+                                                    <div class="student-col">
+                                                        <div class="student-avatar" style="background:#dbeafe; color:#1d4ed8;">PS</div>
+                                                        <div class="student-name-block">
+                                                            <span class="student-name">Priyanshu Sharma</span>
+                                                            <span class="student-email">priyanshu@presentcall.ai</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS2026-001</strong></td>
+                                                <td class="course-col">CS-401 (AI)</td>
+                                                <td class="date-col">Today, Oct 6</td>
+                                                <td class="checkin-col">09:02:14 AM</td>
+                                                <td class="checkout-col">--:--:--</td>
+                                                <td><span class="badge-status badge-present">&check; Present</span></td>
+                                                <td>
+                                                    <div class="confidence-meter">
+                                                        <div class="confidence-bar-bg"><div class="confidence-bar-fill" style="width: 99.6%;"></div></div>
+                                                        <span class="confidence-val">99.6%</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-row-actions">
+                                                        <button class="btn-table-action" onclick="showToast('Profile: Priyanshu Sharma • 98% Overall Attendance', 'info')">View</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr data-name="Ananya Kapoor" data-id="CS2026-014" data-status="present">
+                                                <td>
+                                                    <div class="student-col">
+                                                        <div class="student-avatar" style="background:#fce7f3; color:#be185d;">AK</div>
+                                                        <div class="student-name-block">
+                                                            <span class="student-name">Ananya Kapoor</span>
+                                                            <span class="student-email">ananya.k@college.edu</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS2026-014</strong></td>
+                                                <td class="course-col">CS-401 (AI)</td>
+                                                <td class="date-col">Today, Oct 6</td>
+                                                <td class="checkin-col">09:03:45 AM</td>
+                                                <td class="checkout-col">--:--:--</td>
+                                                <td><span class="badge-status badge-present">&check; Present</span></td>
+                                                <td>
+                                                    <div class="confidence-meter">
+                                                        <div class="confidence-bar-bg"><div class="confidence-bar-fill" style="width: 98.9%;"></div></div>
+                                                        <span class="confidence-val">98.9%</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-row-actions">
+                                                        <button class="btn-table-action" onclick="showToast('Profile: Ananya Kapoor • 95% Overall Attendance', 'info')">View</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr data-name="Rohan Verma" data-id="CS2026-029" data-status="late">
+                                                <td>
+                                                    <div class="student-col">
+                                                        <div class="student-avatar" style="background:#fef3c7; color:#b45309;">RV</div>
+                                                        <div class="student-name-block">
+                                                            <span class="student-name">Rohan Verma</span>
+                                                            <span class="student-email">rohan.v@college.edu</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS2026-029</strong></td>
+                                                <td class="course-col">CS-401 (AI)</td>
+                                                <td class="date-col">Today, Oct 6</td>
+                                                <td class="checkin-col">09:14:20 AM</td>
+                                                <td class="checkout-col">--:--:--</td>
+                                                <td><span class="badge-status badge-late">! Late</span></td>
+                                                <td>
+                                                    <div class="confidence-meter">
+                                                        <div class="confidence-bar-bg"><div class="confidence-bar-fill" style="width: 97.4%;"></div></div>
+                                                        <span class="confidence-val">97.4%</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-row-actions">
+                                                        <button class="btn-table-action" onclick="showToast('Rohan Verma marked Late (+14 mins). Notification dispatched.', 'info')">View</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr data-name="Devendra Mehta" data-id="CS2026-033" data-status="absent">
+                                                <td>
+                                                    <div class="student-col">
+                                                        <div class="student-avatar" style="background:#fee2e2; color:#b91c1c;">DM</div>
+                                                        <div class="student-name-block">
+                                                            <span class="student-name">Devendra Mehta</span>
+                                                            <span class="student-email">d.mehta@college.edu</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS2026-033</strong></td>
+                                                <td class="course-col">CS-401 (AI)</td>
+                                                <td class="date-col">Today, Oct 6</td>
+                                                <td class="checkin-col">--:--:--</td>
+                                                <td class="checkout-col">--:--:--</td>
+                                                <td><span class="badge-status badge-absent">&times; Absent</span></td>
+                                                <td>
+                                                    <div class="confidence-meter">
+                                                        <div class="confidence-bar-bg"><div class="confidence-bar-fill" style="width: 0%;"></div></div>
+                                                        <span class="confidence-val">0.0%</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-row-actions">
+                                                        <button class="btn-table-action" onclick="showToast('Absence notification queued for Devendra Mehta', 'error')">Notify</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr data-name="Simran Kaur" data-id="CS2026-048" data-status="pending">
+                                                <td>
+                                                    <div class="student-col">
+                                                        <div class="student-avatar" style="background:#e0e7ff; color:#4338ca;">SK</div>
+                                                        <div class="student-name-block">
+                                                            <span class="student-name">Simran Kaur</span>
+                                                            <span class="student-email">simran.k@college.edu</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS2026-048</strong></td>
+                                                <td class="course-col">CS-401 (AI)</td>
+                                                <td class="date-col">Today, Oct 6</td>
+                                                <td class="checkin-col">09:08:10 AM</td>
+                                                <td class="checkout-col">--:--:--</td>
+                                                <td><span class="badge-status badge-pending">&bull; Pending</span></td>
+                                                <td>
+                                                    <div class="confidence-meter">
+                                                        <div class="confidence-bar-bg"><div class="confidence-bar-fill" style="width: 82.5%; background:#3b82f6;"></div></div>
+                                                        <span class="confidence-val">82.5%</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-row-actions">
+                                                        <button class="btn-table-action" onclick="showToast('Biometric manual review approved for Simran Kaur', 'success')">Verify</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Empty State (Section 13) -->
+                                <div class="table-empty-state" id="tableEmptyState">
+                                    <div class="empty-state-icon">
+                                        <span class="icon" style="width:32px; height:32px;">
+                                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        </span>
+                                    </div>
+                                    <div class="empty-state-title">No Matching Records Found</div>
+                                    <div class="empty-state-text">No attendance records match your current search query or status filter. Try clearing your filters.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 3: AI CAMERA BIOMETRIC STUDIO (Section 7) ================= -->
+                        <div class="dashboard-view" id="view-ai-camera">
+                            <div class="ai-studio-grid">
+                                <div class="ai-viewport-card">
+                                    <div class="ai-viewport-header">
+                                        <div class="ai-viewport-title">
+                                            <span class="icon" style="color:#38bdf8;">
+                                                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                            </span>
+                                            High-Speed Computer Vision Camera Stream
+                                        </div>
+                                        <span class="ai-live-tag">Live Feed</span>
+                                    </div>
+
+                                    <div class="ai-screen-container">
+                                        <!-- Webcam or Realistic AI Canvas -->
+                                        <video id="webcamVideo" class="video-stream-feed" autoplay playsinline muted></video>
+                                        <canvas id="simulatedCameraCanvas" class="simulated-feed-canvas"></canvas>
+
+                                        <!-- HUD Reticle & Face Target -->
+                                        <div class="ai-hud-overlay">
+                                            <div class="hud-face-target" id="hudFaceTarget">
+                                                <span class="corner-bracket corner-tl"></span>
+                                                <span class="corner-bracket corner-tr"></span>
+                                                <span class="corner-bracket corner-bl"></span>
+                                                <span class="corner-bracket corner-br"></span>
+                                                <div class="hud-scan-beam"></div>
+
+                                                <div class="hud-id-tag" id="hudIdTag">
+                                                    <span>●</span> Aarav Sharma &bull; 99.4% Match
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ai-viewport-controls">
+                                        <div class="ai-status-indicator">
+                                            <span class="status-ring"></span>
+                                            <span id="aiStatusBadge">AI Verification Engine Active</span>
+                                        </div>
+
+                                        <div style="display:flex; gap:10px;">
+                                            <button class="btn-secondary" id="toggleWebcamBtn" style="border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:#ffffff;">
+                                                <span class="icon">
+                                                    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                                </span>
+                                                Enable Live Webcam
+                                            </button>
+                                            <button class="btn-mark-attendance" id="markAttendanceBtn">
+                                                <span class="icon">
+                                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                </span>
+                                                Mark Attendance
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- AI Biometric Telemetry Panel -->
+                                <div class="ai-telemetry-panel">
+                                    <div class="telemetry-card">
+                                        <div class="telemetry-title">
+                                            <span class="icon" style="color:var(--pc-blue-600);"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+                                            Biometric Security Parameters
+                                        </div>
+                                        <ul class="telemetry-list">
+                                            <li class="telemetry-item">
+                                                <span class="telemetry-key">Model</span>
+                                                <span class="telemetry-val">Dlib 68-Point Landmarks</span>
+                                            </li>
+                                            <li class="telemetry-item">
+                                                <span class="telemetry-key">Embedding Dim</span>
+                                                <span class="telemetry-val">128-d Vector</span>
+                                            </li>
+                                            <li class="telemetry-item">
+                                                <span class="telemetry-key">Anti-Spoofing</span>
+                                                <span class="telemetry-val" style="color:var(--pc-status-present);">ACTIVE (Liveness)</span>
+                                            </li>
+                                            <li class="telemetry-item">
+                                                <span class="telemetry-key">Inference Latency</span>
+                                                <span class="telemetry-val">142 ms</span>
+                                            </li>
+                                            <li class="telemetry-item">
+                                                <span class="telemetry-key">Match Threshold</span>
+                                                <span class="telemetry-val">&ge; 0.60 Distance</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="telemetry-card">
+                                        <div class="telemetry-title">
+                                            <span class="icon" style="color:var(--pc-blue-600);"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span>
+                                            Multi-Face Group Detection
+                                        </div>
+                                        <p style="font-size:0.8rem; color:var(--pc-text-muted); margin-bottom:12px;">Present Call can automatically extract and match dozens of student faces from a single classroom wide-angle photograph in less than a second.</p>
+                                        <button class="btn-secondary" style="width:100%; justify-content:center;" onclick="showToast('Classroom photo mode active: 42 faces matched instantly', 'success')">
+                                            Simulate Classroom Snapshot
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 4: VOICE BIOMETRICS STUDIO ================= -->
+                        <div class="dashboard-view" id="view-voice-id">
+                            <div class="panel-card" style="max-width:800px; margin:0 auto;">
+                                <div class="panel-header">
+                                    <div>
+                                        <div class="panel-title">Sequential Voice Biometrics Roll-Call</div>
+                                        <div class="panel-subtitle">Students pronounce "Present" one by one; Resemblyzer validates acoustic timbre against stored voice embeddings.</div>
+                                    </div>
+                                    <span class="badge-status badge-present">256-d Voice Embeddings</span>
+                                </div>
+
+                                <div class="voice-waveform-box" style="margin:20px 0;">
+                                    <canvas id="voiceWaveformCanvas" class="waveform-canvas"></canvas>
+                                    <div class="voice-status-text">Listening for student voice signature: <em>"Present"</em></div>
+                                </div>
+
+                                <div style="display:flex; justify-content:center; gap:14px; margin-top:24px;">
+                                    <button class="btn-primary" onclick="showToast('Voice signature identified: Match 98.4% with stored embedding', 'success')">
+                                        <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path></svg></span>
+                                        Simulate Student Voice "Present"
+                                    </button>
+                                    <button class="btn-secondary" onclick="showToast('Resetting audio buffer for next roll number', 'info')">
+                                        Next Student Roll
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 5: STUDENTS DIRECTORY ================= -->
+                        <div class="dashboard-view" id="view-students">
+                            <div class="table-controls-bar">
+                                <div class="search-input-wrap">
+                                    <span class="search-icon icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+                                    <input type="text" class="search-input" placeholder="Search student directory...">
+                                </div>
+                                <button class="btn-primary" onclick="showToast('Student enrollment link & QR generated', 'success')">
+                                    <span class="icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                                    Invite New Student
+                                </button>
+                            </div>
+
+                            <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px;">
+                                <div class="panel-card">
+                                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                                        <div class="student-avatar" style="width:44px; height:44px;">PS</div>
+                                        <div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Priyanshu Sharma</div>
+                                            <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-001 &bull; CS-401</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-size:0.82rem; color:var(--pc-text-muted); margin-bottom:12px;">Biometrics: <strong style="color:var(--pc-status-present);">FaceID &amp; VoiceID Registered</strong></div>
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; border-top:1px solid var(--pc-border); padding-top:10px;">
+                                        <span>Attendance Rate</span>
+                                        <strong style="color:var(--pc-blue-600);">98.2%</strong>
+                                    </div>
+                                </div>
+
+                                <div class="panel-card">
+                                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                                        <div class="student-avatar" style="width:44px; height:44px; background:#fce7f3; color:#be185d;">AK</div>
+                                        <div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Ananya Kapoor</div>
+                                            <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-014 &bull; CS-401</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-size:0.82rem; color:var(--pc-text-muted); margin-bottom:12px;">Biometrics: <strong style="color:var(--pc-status-present);">FaceID &amp; VoiceID Registered</strong></div>
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; border-top:1px solid var(--pc-border); padding-top:10px;">
+                                        <span>Attendance Rate</span>
+                                        <strong style="color:var(--pc-blue-600);">95.0%</strong>
+                                    </div>
+                                </div>
+
+                                <div class="panel-card">
+                                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                                        <div class="student-avatar" style="width:44px; height:44px; background:#fee2e2; color:#b91c1c;">DM</div>
+                                        <div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Devendra Mehta</div>
+                                            <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-033 &bull; CS-401</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-size:0.82rem; color:var(--pc-text-muted); margin-bottom:12px;">Biometrics: <strong style="color:var(--pc-status-present);">FaceID Registered</strong></div>
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; border-top:1px solid var(--pc-border); padding-top:10px;">
+                                        <span>Attendance Rate</span>
+                                        <strong style="color:var(--pc-status-absent);">76.4%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= VIEW 6: SETTINGS ================= -->
+                        <div class="dashboard-view" id="view-settings">
+                            <div class="panel-card" style="max-width:700px; margin:0 auto;">
+                                <div class="panel-title" style="margin-bottom:16px;">Biometric Verification Configuration</div>
+                                <div style="display:flex; flex-direction:column; gap:16px;">
+                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                        <span>Facial Similarity Distance Threshold (Default: 0.6)</span>
+                                        <input type="range" min="0.4" max="0.8" step="0.05" value="0.6" style="cursor:pointer;" oninput="document.getElementById('threshVal').innerText = this.value">
+                                        <strong id="threshVal" style="font-family:monospace; margin-left:8px;">0.6</strong>
+                                    </label>
+                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                        <span>Strict Anti-Spoofing &amp; Liveness Guard</span>
+                                        <input type="checkbox" checked style="transform:scale(1.2); cursor:pointer;">
+                                    </label>
+                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                        <span>Automated SMS/Email Alert on Absence</span>
+                                        <input type="checkbox" checked style="transform:scale(1.2); cursor:pointer;">
+                                    </label>
+                                    <button class="btn-primary" style="margin-top:12px; align-self:flex-start;" onclick="showToast('Configuration settings saved to cloud', 'success')">
+                                        Save Preferences
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- ==========================================================================
+         INNOVATIVE FEATURES SECTION
+         ========================================================================== -->
+    <section id="features" class="features">
+        <div class="features-header">
+            <span class="section-tag">Enterprise Capabilities</span>
+            <h2>Intelligent Attendance Infrastructure</h2>
+            <p>Engineered for high accuracy, lightning throughput, and zero proxy loopholes across campus and enterprise spaces.</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    </span>
+                </div>
+                <h3>AI Face Analysis</h3>
+                <p>Advanced neural networks recognize every student's face from a single class photo in milliseconds, making group attendance instant and accurate.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    </span>
+                </div>
+                <h3>Sequential Voice ID</h3>
+                <p>Students say "Present" one-by-one, and our audio-AI matches their unique voice biometrics against stored 256-d embeddings in real-time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+                    </span>
+                </div>
+                <h3>QR-Driven Roster</h3>
+                <p>Course codes generate unique, encrypted QR codes for instant student enrollment. No manual typing or data entry headaches.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </span>
+                </div>
+                <h3>Anti-Spoofing &amp; Liveness</h3>
+                <p>Deep anti-spoofing algorithms detect photo printouts, screen displays, and voice recordings, ensuring only live, physically present attendees are registered.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                    </span>
+                </div>
+                <h3>Supabase Realtime Sync</h3>
+                <p>PostgreSQL with Row Level Security guarantees instant cross-device updates for faculty, administration, and students without manual synchronization.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon-box">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </span>
+                </div>
+                <h3>Audit-Ready Reports</h3>
+                <p>Generate one-click CSV and PDF reports formatted to accreditation guidelines with confidence scores, exact check-in timestamps, and summary analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         TEACHER JOURNEY SECTION
+         ========================================================================== -->
     <section id="journey" class="teacher-flow">
         <div class="flow-container">
-            <div class="section-tag" style="text-align: center; display: block; margin-bottom: 40px;">- Workflow -</div>
-            <h2 style="text-align: center; font-size: 3.5rem; margin-bottom: 80px;">The Teacher's Journey</h2>
+            <div class="flow-header-center">
+                <span class="section-tag">Faculty Workflow</span>
+                <h2>The Teacher's Journey</h2>
+                <p>Streamline roll-call from minutes to seconds with an automated, intuitive biometric session interface.</p>
+            </div>
 
             <div class="flow-step">
                 <div class="flow-content">
                     <span class="step-badge">Step 01</span>
-                    <h3>Secure Login</h3>
-                    <p>Start your session with our high-security authentication portal. Your data is encrypted and
-                        synced across all your devices.</p>
+                    <h3>Secure Authentication</h3>
+                    <p>Start your lecture session through our high-security portal. Your courses, rosters, and biometric models are encrypted and synchronized instantly.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Encrypted credential handshakes</li>
+                        <li>Course roster synchronization</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-1-login.png') }}"
-                        alt="Login Portal">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-1-login.png') }}" alt="Teacher Login Portal">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -95,12 +919,15 @@
                 <div class="flow-content">
                     <span class="step-badge">Step 02</span>
                     <h3>Interactive Dashboard</h3>
-                    <p>Manage all your subjects, attendance logs, and student rosters from a single, beautiful unified
-                        stream.</p>
+                    <p>Manage all your assigned subjects, attendance logs, and student rosters from a single, unified command center.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>At-a-glance participation rate</li>
+                        <li>Quick-launch attendance triggers</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-2-dashboard.png') }}"
-                        alt="Teacher Dashboard">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-2-dashboard.png') }}" alt="Teacher Dashboard Overview">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -108,12 +935,15 @@
                 <div class="flow-content">
                     <span class="step-badge">Step 03</span>
                     <h3>Course Management</h3>
-                    <p>Creating a new subject is a breeze. Just name it, and PresentCall generates everything you need to
-                        start tracking.</p>
+                    <p>Creating a new subject or semester section is instantaneous. Just name it, and Present Call generates everything you need to start tracking.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Instant course generation</li>
+                        <li>Dynamic QR code distribution</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-3-create-course.png') }}"
-                        alt="Create Course">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-3-create-course.png') }}" alt="Create New Course">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -121,12 +951,15 @@
                 <div class="flow-content">
                     <span class="step-badge">Step 04</span>
                     <h3>FaceID Attendance</h3>
-                    <p>Use high-speed computer vision to scan the entire room. Our AI identifies every student from a
-                        single class photo in milliseconds.</p>
+                    <p>Use high-speed computer vision to scan the entire room. Our AI identifies every student from a single class photo in milliseconds.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Batch multi-face identification</li>
+                        <li>Confidence score evaluation</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5.2-photo-attendance.png') }}"
-                        alt="FaceID Attendance">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5.2-photo-attendance.png') }}" alt="FaceID Photo Attendance">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -134,12 +967,15 @@
                 <div class="flow-content">
                     <span class="step-badge">Step 05</span>
                     <h3>Voice ID Attendance</h3>
-                    <p>Switch to voice mode for a futuristic roll-call. Students speak sequentially, and our AI matches
-                        their unique voice signatures.</p>
+                    <p>Switch to voice mode for a futuristic roll-call. Students speak sequentially, and our AI matches their unique acoustic voice signatures.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Resemblyzer voice embedding match</li>
+                        <li>Noise-tolerant speech processing</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5.1-voice-attendance.png') }}"
-                        alt="Voice Attendance">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5.1-voice-attendance.png') }}" alt="Voice Attendance Verification">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -147,80 +983,44 @@
                 <div class="flow-content">
                     <span class="step-badge">Step 06</span>
                     <h3>Actionable Records</h3>
-                    <p>Review and manage historical logs. View confidence scores, download CSV reports, and track
-                        long-term attendance trends.</p>
+                    <p>Review and manage historical records. View confidence scores, download CSV reports, and track long-term attendance trends effortlessly.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Direct CSV report exports</li>
+                        <li>Historical trends and audit logs</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5-see-stored-records.png') }}"
-                        alt="Records Management">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tech" class="tech-stack">
-        <div class="section-tag">- Our Backend -</div>
-        <h2>Advanced Tech Stack</h2>
-        <div class="tech-grid">
-            <div class="tech-item">
-                <div class="tech-card">
-                    <div class="t-icon">⚡</div>
-                    <div class="tech-info">
-                        <h4>Streamlit & Flask</h4>
-                        <p>Reactive frontend architecture paired with a robust Flask landing layer.</p>
-                    </div>
-                    <span class="tech-tag">Platform</span>
-                </div>
-            </div>
-            <div class="tech-item">
-                <div class="tech-card">
-                    <div class="t-icon">👁️</div>
-                    <div class="tech-info">
-                        <h4>Face Registration</h4>
-                        <p>Leveraging FaceRecognition and Dlib for high-fidelity facial biometrics.</p>
-                    </div>
-                    <span class="tech-tag">Vision AI</span>
-                </div>
-            </div>
-            <div class="tech-item">
-                <div class="tech-card">
-                    <div class="t-icon">🎙️</div>
-                    <div class="tech-info">
-                        <h4>Voice Embeddings</h4>
-                        <p>Utilizing Resemblyzer and Librosa for unique student voice signatures.</p>
-                    </div>
-                    <span class="tech-tag">Audio AI</span>
-                </div>
-            </div>
-            <div class="tech-item">
-                <div class="tech-card">
-                    <div class="t-icon">☁️</div>
-                    <div class="tech-info">
-                        <h4>Supabase Cloud</h4>
-                        <p>Real-time PostgreSQL infrastructure with secure auth and sync.</p>
-                    </div>
-                    <span class="tech-tag">Storage</span>
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-teacher-flow-5-see-stored-records.png') }}" alt="Historical Records Management">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="student-journey" class="teacher-flow" style="background: white;">
+    <!-- ==========================================================================
+         STUDENT JOURNEY SECTION
+         ========================================================================== -->
+    <section id="student-journey" class="teacher-flow" style="background-color: #ffffff;">
         <div class="flow-container">
-            <div class="section-tag" style="text-align: center; display: block; margin-bottom: 40px;">- Workflow -
+            <div class="flow-header-center">
+                <span class="section-tag">Student Experience</span>
+                <h2>The Student's Journey</h2>
+                <p>Frictionless onboarding and transparent personal participation tracking.</p>
             </div>
-            <h2 style="text-align: center; font-size: 3.5rem; margin-bottom: 80px;">The Student's Journey</h2>
 
             <div class="flow-step">
                 <div class="flow-content">
                     <span class="step-badge">Phase 01</span>
                     <h3>Instant Enrollment</h3>
-                    <p>Students join courses in seconds using unique QR codes or course links provided by their
-                        teachers. No tedious sign-up forms.</p>
+                    <p>Students join courses in seconds using unique QR codes or course links provided by their teachers. No tedious sign-up forms.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>One-scan enrollment</li>
+                        <li>Zero password fatigue</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-1-login.png') }}"
-                        alt="Student Enrollment">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-1-login.png') }}" alt="Student Enrollment Portal">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -228,12 +1028,15 @@
                 <div class="flow-content">
                     <span class="step-badge">Phase 02</span>
                     <h3>Biometric Registration</h3>
-                    <p>Students register their FaceID and VoiceID once. Our AI securely stores these biometrics for
-                        all future class sessions.</p>
+                    <p>Students register their FaceID and VoiceID once. Our AI securely extracts and stores mathematical embeddings for all future class sessions.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Mathematical vector extraction</li>
+                        <li>Raw photos are never stored unsecured</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-2-enroll.png') }}"
-                        alt="Biometric Registration">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-2-enroll.png') }}" alt="Biometric Registration">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
 
@@ -241,71 +1044,150 @@
                 <div class="flow-content">
                     <span class="step-badge">Phase 03</span>
                     <h3>Personal Dashboard</h3>
-                    <p>A unified view for students to track their attendance percentage across all subjects and
-                        receive real-time updates.</p>
+                    <p>A unified portal for students to track their attendance percentage across all enrolled subjects and receive real-time alerts if approaching minimum criteria.</p>
+                    <ul class="flow-feature-bullets">
+                        <li>Real-time attendance percentages</li>
+                        <li>Course credit compliance tracking</li>
+                    </ul>
                 </div>
-                <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-3-dashboard.png') }}"
-                        alt="Student Dashboard">
+                <div class="flow-image" title="Click to inspect screenshot in high resolution">
+                    <img src="{{ url_for('static', filename='img/demo/snap-student-flow-3-dashboard.png') }}" alt="Student Personal Dashboard">
+                    <span class="image-zoom-hint"><span class="icon" style="width:12px; height:12px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span> Click to zoom</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="purple-section">
-        <h2>Ready to upgrade your classroom?</h2>
-        <p>Join thousands of educators who have simplified their day with PresentCall. The smartest AI powered
-            attendance
-            system is just one click away.</p>
-        <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-white">Start AI Attendance Now</a>
+    <!-- ==========================================================================
+         TECH STACK & ARCHITECTURE SECTION
+         ========================================================================== -->
+    <section id="tech" class="tech-stack">
+        <span class="section-tag" style="color:#60a5fa; background:rgba(37,99,235,0.15); border-color:rgba(59,130,246,0.3);">System Architecture</span>
+        <h2>Advanced Production Tech Stack</h2>
+        <p class="tech-lead">Built with state-of-the-art Python computer vision, acoustic deep learning, and cloud infrastructure.</p>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="tech-card">
+                    <div class="t-icon">
+                        <span class="icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+                    </div>
+                    <h4>Streamlit &amp; Flask</h4>
+                    <p>Reactive, responsive application layer paired with robust Flask routing.</p>
+                    <span class="tech-tag">Platform</span>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-card">
+                    <div class="t-icon">
+                        <span class="icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                    </div>
+                    <h4>FaceRecognition &amp; Dlib</h4>
+                    <p>High-fidelity 68-point facial landmark geometry and 128-d vector matching.</p>
+                    <span class="tech-tag">Vision AI</span>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-card">
+                    <div class="t-icon">
+                        <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg></span>
+                    </div>
+                    <h4>Resemblyzer &amp; Librosa</h4>
+                    <p>Acoustic speech processing extracting 256-d voice biometric signatures.</p>
+                    <span class="tech-tag">Audio AI</span>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-card">
+                    <div class="t-icon">
+                        <span class="icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></span>
+                    </div>
+                    <h4>Supabase Cloud</h4>
+                    <p>Real-time PostgreSQL with Row Level Security, instant sync, and encryption.</p>
+                    <span class="tech-tag">Cloud Database</span>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- ==========================================================================
+         CALL TO ACTION / CONVERSION BANNER
+         ========================================================================== -->
+    <section class="purple-section">
+        <h2>Ready to eliminate proxy attendance forever?</h2>
+        <p>Join forward-thinking educators who have simplified classroom tracking with Present Call. The intelligent AI attendance platform is just one click away.</p>
+        <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-white">
+            <span>Start AI Attendance Now</span>
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></span>
+        </a>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="PresentCall Logo">
-                    <div class="logo-text">PresentCall</div>
+                    <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo">
+                    <div class="logo-text">Present Call</div>
                 </div>
-                <p>The next generation of classroom management, powered by advanced AI biometrics. Join the future of
-                    education today.</p>
+                <p>The next generation of classroom and workforce management, powered by advanced biometric AI. Accurate, effortless, and proxy-proof.</p>
             </div>
 
             <div class="footer-links">
                 <h4>Product</h4>
                 <ul>
-                    <li><a href="#features">AI Attendance</a></li>
-                    <li><a href="#features">Smart Roster</a></li>
-                    <li><a href="#tech">Tech Stack</a></li>
-                    <li><a href="#student-journey">Student Portal</a></li>
+                    <li><a href="#demo-portal">Live Dashboard</a></li>
+                    <li><a href="#demo-portal">Attendance Records</a></li>
+                    <li><a href="#demo-portal">AI Biometrics Studio</a></li>
+                    <li><a href="#tech">System Architecture</a></li>
                 </ul>
             </div>
 
             <div class="footer-links">
                 <h4>Experience</h4>
                 <ul>
-                    <li><a href="#journey">Teacher Journey</a></li>
-                    <li><a href="#student-journey">Student Journey</a></li>
-                    <li><a href="#features">Voice ID Roll-call</a></li>
-                    <li><a href="#features">FaceID Scan</a></li>
+                    <li><a href="#journey">Teacher Flow</a></li>
+                    <li><a href="#student-journey">Student Flow</a></li>
+                    <li><a href="#features">Voice ID Roll-Call</a></li>
+                    <li><a href="#features">Multi-Face Photo Scan</a></li>
                 </ul>
             </div>
 
             <div class="footer-links">
-                <h4>Company</h4>
+                <h4>Platform</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">How it Works</a></li>
+                    <li><a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener">Streamlit Production App ↗</a></li>
+                    <li><a href="#">Security &amp; Encryption</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 PresentCall AI. Built with 🍵 to stop proxy.</p>
+            <p>&copy; 2026 Present Call AI. An intelligent attendance platform powered by AI.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#topNavbar">Back to Top &uarr;</a>
+            </div>
         </div>
     </footer>
+
+    <!-- Image Lightbox Modal for Full Screenshot Previews -->
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Screenshot Preview">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close modal">&times;</button>
+            <img id="lightboxImg" src="" alt="Screenshot">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Floating Real-Time Toast Notifications Container (Section 8) -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
