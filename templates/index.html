@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Present Call | Enterprise AI Attendance & Biometrics Platform</title>
     <meta name="description" content="Next-generation AI-powered attendance system utilizing multi-face computer vision and sequential voice biometrics to eliminate proxy attendance.">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,37 +13,53 @@
 <body>
     <!-- Top Navigation Bar -->
     <nav class="navbar" id="topNavbar">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo">
-            <div class="logo-text">
-                Present Call
-                <span class="logo-badge">AI 2.0</span>
+        <!-- Zone 1: Brand Group (Logo -> Present Call -> AI 2.0) -->
+        <a href="#" class="logo" aria-label="Present Call AI 2.0 Home">
+            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo" class="logo-img">
+            <span class="logo-text">Present Call</span>
+            <span class="logo-badge">AI 2.0</span>
+        </a>
+
+        <!-- Mobile Navigation Backdrop Overlay -->
+        <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+        <!-- Zone 2: Primary Center Navigation -->
+        <div class="nav-links" id="mainNavLinks">
+            <div class="nav-mobile-header">
+                <div class="nav-mobile-brand">
+                    <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call" class="nav-mobile-logo">
+                    <span>Present Call</span>
+                    <span class="logo-badge">AI 2.0</span>
+                </div>
+                <button class="nav-mobile-close" id="navMobileClose" aria-label="Close navigation menu">&times;</button>
+            </div>
+            <div class="nav-links-menu">
+                <a href="#">Overview</a>
+                <a href="#demo-portal">Live Dashboard</a>
+                <a href="#features">Features</a>
+                <a href="#journey">Teacher Flow</a>
+                <a href="#student-journey">Student Flow</a>
+                <a href="#tech">Architecture</a>
+            </div>
+            <div class="nav-mobile-actions">
+                <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-mobile-primary">
+                    <span>Launch App</span>
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
+                </a>
             </div>
         </div>
 
-        <div class="nav-links">
-            <a href="#">Overview</a>
-            <a href="#demo-portal">Live Dashboard</a>
-            <a href="#features">Features</a>
-            <a href="#journey">Teacher Flow</a>
-            <a href="#student-journey">Student Flow</a>
-            <a href="#tech">Architecture</a>
-        </div>
-
+        <!-- Zone 3: Primary CTA & Mobile Hamburger -->
         <div class="nav-cta">
-            <a href="#demo-portal" class="btn-secondary-nav">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </span>
-                Interactive Demo
-            </a>
             <a href="https://presentcall.streamlit.app/" target="_blank" rel="noopener" class="btn-pill" id="launchStreamlitBtn">
-                <span>Launch Streamlit App</span>
+                <span>Launch App</span>
                 <span class="icon">
                     <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </span>
             </a>
-            <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle navigation menu">
+            <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
@@ -103,7 +119,7 @@
         <div class="portal-container">
             <div class="portal-header-area">
                 <span class="section-tag">Interactive Platform Simulation</span>
-                <h2>Enterprise Attendance & AI Verification Portal</h2>
+                <h2>Enterprise Attendance &amp; AI Verification Portal</h2>
                 <p>Test the full dashboard workflow below: explore real-time KPIs, search and filter the attendance table, export CSV records, or test the live AI facial scanning studio.</p>
             </div>
 
@@ -120,7 +136,7 @@
                         <span class="icon" style="width:14px; height:14px; color:#38bdf8;">
                             <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         </span>
-                        app.presentcall.ai &mdash; Production Attendance Hub (Session Active)
+                        <span>app.presentcall.ai &mdash; Production Attendance Hub</span>
                     </div>
                     <div class="window-status-pill">
                         <span class="badge-dot" style="width:6px; height:6px;"></span>
@@ -129,11 +145,17 @@
                 </div>
 
                 <div class="saas-layout">
-                    <!-- Left Sidebar (Section 5) -->
-                    <aside class="saas-sidebar">
+                    <!-- Mobile Sidebar Backdrop Overlay -->
+                    <div class="saas-sidebar-backdrop" id="saasSidebarBackdrop" aria-hidden="true"></div>
+
+                    <!-- Left Sidebar (Section 2) -->
+                    <aside class="saas-sidebar" id="saasSidebar">
                         <div class="sidebar-brand">
-                            <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call">
-                            <span class="sidebar-brand-name">Present Call</span>
+                            <div class="sidebar-brand-inner">
+                                <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call">
+                                <span class="sidebar-brand-name">Present Call</span>
+                            </div>
+                            <button class="saas-sidebar-close" id="saasSidebarClose" aria-label="Close sidebar menu">&times;</button>
                         </div>
 
                         <div class="sidebar-nav">
@@ -192,12 +214,19 @@
 
                     <!-- SaaS Main Content Panel -->
                     <main class="saas-main">
-                        <!-- Top Bar (Section 5) -->
+                        <!-- Top Bar (Section 3) -->
                         <div class="dashboard-topbar">
-                            <div class="topbar-breadcrumb">
-                                <span>Present Call</span>
-                                <span>/</span>
-                                <strong id="breadcrumbCurrent">Executive Overview</strong>
+                            <div class="topbar-left-cluster">
+                                <button class="saas-sidebar-toggle" id="saasSidebarToggle" aria-label="Open dashboard navigation menu">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                                    </span>
+                                </button>
+                                <div class="topbar-breadcrumb">
+                                    <span class="breadcrumb-root">Present Call</span>
+                                    <span class="breadcrumb-separator">/</span>
+                                    <strong id="breadcrumbCurrent">Executive Overview</strong>
+                                </div>
                             </div>
 
                             <div class="topbar-actions">
@@ -219,7 +248,7 @@
 
                         <!-- ================= VIEW 1: EXECUTIVE DASHBOARD ================= -->
                         <div class="dashboard-view active" id="view-overview">
-                            <!-- 4 KPI Summary Cards (Section 5) -->
+                            <!-- 4 KPI Summary Cards (Section 4) -->
                             <div class="summary-cards-grid">
                                 <div class="summary-card card-total">
                                     <div class="summary-card-header">
@@ -344,35 +373,59 @@
 
                                     <div class="activity-stream" id="activityStreamList">
                                         <div class="activity-item">
-                                            <div class="activity-avatar" style="background:#ecfdf5; color:#059669;">PS</div>
+                                            <div class="activity-avatar" style="background:#ecfdf5; color:#059669;">PV</div>
                                             <div class="activity-details">
-                                                <div class="activity-name">Priyanshu Sharma</div>
-                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:02 AM</span> &bull; <span>FaceID (99.6%)</span></div>
+                                                <div class="activity-name verification-name" title="Priyanshu Vijay">Priyanshu Vijay</div>
+                                                <div class="activity-meta">
+                                                    <span class="activity-subtag">AI Verified</span>
+                                                    <span>&bull;</span>
+                                                    <span>CS-401</span>
+                                                    <span>&bull;</span>
+                                                    <span>09:02 AM</span>
+                                                    <span>&bull;</span>
+                                                    <span class="activity-method">FaceID (99.6%)</span>
+                                                </div>
                                             </div>
-                                            <span class="activity-badge">&check; Present</span>
+                                            <span class="activity-badge badge-present">&check; Present</span>
                                         </div>
                                         <div class="activity-item">
-                                            <div class="activity-avatar" style="background:#eff6ff; color:#2563eb;">AK</div>
+                                            <div class="activity-avatar" style="background:#eff6ff; color:#2563eb;">RG</div>
                                             <div class="activity-details">
-                                                <div class="activity-name">Ananya Kapoor</div>
-                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:03 AM</span> &bull; <span>VoiceID (98.9%)</span></div>
+                                                <div class="activity-name verification-name" title="Ravi Kumar Gangwar">Ravi Kumar Gangwar</div>
+                                                <div class="activity-meta">
+                                                    <span class="activity-subtag">AI Verified</span>
+                                                    <span>&bull;</span>
+                                                    <span>CS-401</span>
+                                                    <span>&bull;</span>
+                                                    <span>09:03 AM</span>
+                                                    <span>&bull;</span>
+                                                    <span class="activity-method">VoiceID (98.9%)</span>
+                                                </div>
                                             </div>
-                                            <span class="activity-badge">&check; Present</span>
+                                            <span class="activity-badge badge-present">&check; Present</span>
                                         </div>
                                         <div class="activity-item">
-                                            <div class="activity-avatar" style="background:#fffbeb; color:#d97706;">RV</div>
+                                            <div class="activity-avatar" style="background:#fffbeb; color:#d97706;">SP</div>
                                             <div class="activity-details">
-                                                <div class="activity-name">Rohan Verma</div>
-                                                <div class="activity-meta"><span>CS-401</span> &bull; <span>09:14 AM</span> &bull; <span>Late Arrival</span></div>
+                                                <div class="activity-name verification-name" title="Soumya Pandey">Soumya Pandey</div>
+                                                <div class="activity-meta">
+                                                    <span class="activity-subtag">AI Verified</span>
+                                                    <span>&bull;</span>
+                                                    <span>CS-401</span>
+                                                    <span>&bull;</span>
+                                                    <span>09:14 AM</span>
+                                                    <span>&bull;</span>
+                                                    <span class="activity-method">Late Arrival</span>
+                                                </div>
                                             </div>
-                                            <span class="activity-badge" style="background:var(--pc-status-late-bg); color:var(--pc-status-late);">! Late</span>
+                                            <span class="activity-badge badge-late">! Late</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ================= VIEW 2: ATTENDANCE TABLE (Section 6) ================= -->
+                        <!-- ================= VIEW 2: ATTENDANCE TABLE (Section 5) ================= -->
                         <div class="dashboard-view" id="view-attendance">
                             <div class="table-controls-bar">
                                 <div class="filter-group">
@@ -404,18 +457,26 @@
                                         <span class="icon">
                                             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                         </span>
-                                        Export CSV
+                                        <span>Export CSV</span>
                                     </button>
                                     <button class="btn-primary" onclick="showToast('Roster data refreshed from Supabase Cloud', 'info')">
                                         <span class="icon">
                                             <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
                                         </span>
-                                        Sync Roster
+                                        <span>Sync Roster</span>
                                     </button>
                                 </div>
                             </div>
 
                             <div class="table-card">
+                                <!-- Responsive Scroll Indicator Hint -->
+                                <div class="table-scroll-hint">
+                                    <span class="icon" style="width:14px; height:14px;">
+                                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    </span>
+                                    <span>Scroll or swipe horizontally to inspect all columns &amp; timestamps</span>
+                                </div>
+
                                 <div class="table-responsive">
                                     <table class="data-table">
                                         <thead>
@@ -432,13 +493,13 @@
                                             </tr>
                                         </thead>
                                         <tbody id="attendanceTableBody">
-                                            <tr data-name="Priyanshu Sharma" data-id="CS2026-001" data-status="present">
+                                            <tr data-name="Priyanshu Vijay" data-id="CS2026-001" data-status="present">
                                                 <td>
                                                     <div class="student-col">
-                                                        <div class="student-avatar" style="background:#dbeafe; color:#1d4ed8;">PS</div>
+                                                        <div class="student-avatar" style="background:#ecfdf5; color:#059669;">PV</div>
                                                         <div class="student-name-block">
-                                                            <span class="student-name">Priyanshu Sharma</span>
-                                                            <span class="student-email">priyanshu@presentcall.ai</span>
+                                                            <span class="student-name">Priyanshu Vijay</span>
+                                                            <span class="student-email">priyanshu.vijay@presentcall.ai</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -456,18 +517,18 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-row-actions">
-                                                        <button class="btn-table-action" onclick="showToast('Profile: Priyanshu Sharma • 98% Overall Attendance', 'info')">View</button>
+                                                        <button class="btn-table-action" onclick="showToast('Profile: Priyanshu Vijay • 98% Overall Attendance', 'info')">View</button>
                                                     </div>
                                                 </td>
                                             </tr>
 
-                                            <tr data-name="Ananya Kapoor" data-id="CS2026-014" data-status="present">
+                                            <tr data-name="Ravi Kumar Gangwar" data-id="CS2026-014" data-status="present">
                                                 <td>
                                                     <div class="student-col">
-                                                        <div class="student-avatar" style="background:#fce7f3; color:#be185d;">AK</div>
+                                                        <div class="student-avatar" style="background:#eff6ff; color:#2563eb;">RG</div>
                                                         <div class="student-name-block">
-                                                            <span class="student-name">Ananya Kapoor</span>
-                                                            <span class="student-email">ananya.k@college.edu</span>
+                                                            <span class="student-name">Ravi Kumar Gangwar</span>
+                                                            <span class="student-email">ravi.gangwar@presentcall.ai</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -485,18 +546,18 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-row-actions">
-                                                        <button class="btn-table-action" onclick="showToast('Profile: Ananya Kapoor • 95% Overall Attendance', 'info')">View</button>
+                                                        <button class="btn-table-action" onclick="showToast('Profile: Ravi Kumar Gangwar • 99% Overall Attendance', 'info')">View</button>
                                                     </div>
                                                 </td>
                                             </tr>
 
-                                            <tr data-name="Rohan Verma" data-id="CS2026-029" data-status="late">
+                                            <tr data-name="Soumya Pandey" data-id="CS2026-029" data-status="late">
                                                 <td>
                                                     <div class="student-col">
-                                                        <div class="student-avatar" style="background:#fef3c7; color:#b45309;">RV</div>
+                                                        <div class="student-avatar" style="background:#fffbeb; color:#d97706;">SP</div>
                                                         <div class="student-name-block">
-                                                            <span class="student-name">Rohan Verma</span>
-                                                            <span class="student-email">rohan.v@college.edu</span>
+                                                            <span class="student-name">Soumya Pandey</span>
+                                                            <span class="student-email">soumya.pandey@presentcall.ai</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -514,7 +575,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-row-actions">
-                                                        <button class="btn-table-action" onclick="showToast('Rohan Verma marked Late (+14 mins). Notification dispatched.', 'info')">View</button>
+                                                        <button class="btn-table-action" onclick="showToast('Soumya Pandey marked Late (+14 mins). Notification dispatched.', 'info')">View</button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -602,7 +663,7 @@
                                             <span class="icon" style="color:#38bdf8;">
                                                 <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </span>
-                                            High-Speed Computer Vision Camera Stream
+                                            <span>Computer Vision Stream</span>
                                         </div>
                                         <span class="ai-live-tag">Live Feed</span>
                                     </div>
@@ -622,7 +683,7 @@
                                                 <div class="hud-scan-beam"></div>
 
                                                 <div class="hud-id-tag" id="hudIdTag">
-                                                    <span>●</span> Aarav Sharma &bull; 99.4% Match
+                                                    <span>●</span> Priyanshu Vijay &bull; 99.4% Match
                                                 </div>
                                             </div>
                                         </div>
@@ -634,18 +695,18 @@
                                             <span id="aiStatusBadge">AI Verification Engine Active</span>
                                         </div>
 
-                                        <div style="display:flex; gap:10px;">
-                                            <button class="btn-secondary" id="toggleWebcamBtn" style="border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:#ffffff;">
+                                        <div class="ai-controls-btn-group">
+                                            <button class="btn-secondary" id="toggleWebcamBtn">
                                                 <span class="icon">
                                                     <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                                 </span>
-                                                Enable Live Webcam
+                                                <span>Enable Webcam</span>
                                             </button>
                                             <button class="btn-mark-attendance" id="markAttendanceBtn">
                                                 <span class="icon">
                                                     <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                                 </span>
-                                                Mark Attendance
+                                                <span>Mark Attendance</span>
                                             </button>
                                         </div>
                                     </div>
@@ -656,12 +717,12 @@
                                     <div class="telemetry-card">
                                         <div class="telemetry-title">
                                             <span class="icon" style="color:var(--pc-blue-600);"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-                                            Biometric Security Parameters
+                                            Biometric Parameters
                                         </div>
                                         <ul class="telemetry-list">
                                             <li class="telemetry-item">
                                                 <span class="telemetry-key">Model</span>
-                                                <span class="telemetry-val">Dlib 68-Point Landmarks</span>
+                                                <span class="telemetry-val">Dlib 68-Point</span>
                                             </li>
                                             <li class="telemetry-item">
                                                 <span class="telemetry-key">Embedding Dim</span>
@@ -669,15 +730,15 @@
                                             </li>
                                             <li class="telemetry-item">
                                                 <span class="telemetry-key">Anti-Spoofing</span>
-                                                <span class="telemetry-val" style="color:var(--pc-status-present);">ACTIVE (Liveness)</span>
+                                                <span class="telemetry-val" style="color:var(--pc-status-present);">ACTIVE</span>
                                             </li>
                                             <li class="telemetry-item">
                                                 <span class="telemetry-key">Inference Latency</span>
                                                 <span class="telemetry-val">142 ms</span>
                                             </li>
                                             <li class="telemetry-item">
-                                                <span class="telemetry-key">Match Threshold</span>
-                                                <span class="telemetry-val">&ge; 0.60 Distance</span>
+                                                <span class="telemetry-key">Match Distance</span>
+                                                <span class="telemetry-val">&ge; 0.60</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -687,9 +748,9 @@
                                             <span class="icon" style="color:var(--pc-blue-600);"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span>
                                             Multi-Face Group Detection
                                         </div>
-                                        <p style="font-size:0.8rem; color:var(--pc-text-muted); margin-bottom:12px;">Present Call can automatically extract and match dozens of student faces from a single classroom wide-angle photograph in less than a second.</p>
+                                        <p style="font-size:0.8rem; color:var(--pc-text-muted); margin-bottom:12px;">Extract and match dozens of student faces from a single classroom photograph in less than a second.</p>
                                         <button class="btn-secondary" style="width:100%; justify-content:center;" onclick="showToast('Classroom photo mode active: 42 faces matched instantly', 'success')">
-                                            Simulate Classroom Snapshot
+                                            Simulate Group Snapshot
                                         </button>
                                     </div>
                                 </div>
@@ -712,13 +773,13 @@
                                     <div class="voice-status-text">Listening for student voice signature: <em>"Present"</em></div>
                                 </div>
 
-                                <div style="display:flex; justify-content:center; gap:14px; margin-top:24px;">
+                                <div class="voice-controls-row">
                                     <button class="btn-primary" onclick="showToast('Voice signature identified: Match 98.4% with stored embedding', 'success')">
                                         <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path></svg></span>
-                                        Simulate Student Voice "Present"
+                                        <span>Simulate Voice "Present"</span>
                                     </button>
                                     <button class="btn-secondary" onclick="showToast('Resetting audio buffer for next roll number', 'info')">
-                                        Next Student Roll
+                                        <span>Next Student Roll</span>
                                     </button>
                                 </div>
                             </div>
@@ -733,16 +794,16 @@
                                 </div>
                                 <button class="btn-primary" onclick="showToast('Student enrollment link & QR generated', 'success')">
                                     <span class="icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-                                    Invite New Student
+                                    <span>Invite New Student</span>
                                 </button>
                             </div>
 
-                            <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px;">
+                            <div class="student-directory-grid">
                                 <div class="panel-card">
                                     <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                                        <div class="student-avatar" style="width:44px; height:44px;">PS</div>
+                                        <div class="student-avatar" style="width:44px; height:44px; background:#ecfdf5; color:#059669;">PV</div>
                                         <div>
-                                            <div style="font-weight:700; color:var(--pc-text-heading);">Priyanshu Sharma</div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Priyanshu Vijay</div>
                                             <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-001 &bull; CS-401</div>
                                         </div>
                                     </div>
@@ -755,16 +816,16 @@
 
                                 <div class="panel-card">
                                     <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                                        <div class="student-avatar" style="width:44px; height:44px; background:#fce7f3; color:#be185d;">AK</div>
+                                        <div class="student-avatar" style="width:44px; height:44px; background:#eff6ff; color:#2563eb;">RG</div>
                                         <div>
-                                            <div style="font-weight:700; color:var(--pc-text-heading);">Ananya Kapoor</div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Ravi Kumar Gangwar</div>
                                             <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-014 &bull; CS-401</div>
                                         </div>
                                     </div>
                                     <div style="font-size:0.82rem; color:var(--pc-text-muted); margin-bottom:12px;">Biometrics: <strong style="color:var(--pc-status-present);">FaceID &amp; VoiceID Registered</strong></div>
                                     <div style="display:flex; justify-content:space-between; font-size:0.8rem; border-top:1px solid var(--pc-border); padding-top:10px;">
                                         <span>Attendance Rate</span>
-                                        <strong style="color:var(--pc-blue-600);">95.0%</strong>
+                                        <strong style="color:var(--pc-blue-600);">99.0%</strong>
                                     </div>
                                 </div>
 
@@ -790,16 +851,18 @@
                             <div class="panel-card" style="max-width:700px; margin:0 auto;">
                                 <div class="panel-title" style="margin-bottom:16px;">Biometric Verification Configuration</div>
                                 <div style="display:flex; flex-direction:column; gap:16px;">
-                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                    <label class="settings-control-row">
                                         <span>Facial Similarity Distance Threshold (Default: 0.6)</span>
-                                        <input type="range" min="0.4" max="0.8" step="0.05" value="0.6" style="cursor:pointer;" oninput="document.getElementById('threshVal').innerText = this.value">
-                                        <strong id="threshVal" style="font-family:monospace; margin-left:8px;">0.6</strong>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <input type="range" min="0.4" max="0.8" step="0.05" value="0.6" style="cursor:pointer;" oninput="document.getElementById('threshVal').innerText = this.value">
+                                            <strong id="threshVal" style="font-family:monospace; min-width:30px;">0.6</strong>
+                                        </div>
                                     </label>
-                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                    <label class="settings-control-row">
                                         <span>Strict Anti-Spoofing &amp; Liveness Guard</span>
                                         <input type="checkbox" checked style="transform:scale(1.2); cursor:pointer;">
                                     </label>
-                                    <label style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem;">
+                                    <label class="settings-control-row">
                                         <span>Automated SMS/Email Alert on Absence</span>
                                         <input type="checkbox" checked style="transform:scale(1.2); cursor:pointer;">
                                     </label>
@@ -1131,11 +1194,14 @@
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <div class="logo">
-                    <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo">
-                    <div class="logo-text">Present Call</div>
+                <div class="footer-brand-block">
+                    <a href="#" class="footer-logo-link" aria-label="Present Call Home">
+                        <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo" class="footer-logo-img">
+                    </a>
+                    <div class="footer-brand-name">Present Call</div>
+                    <div class="footer-tagline">AI-powered attendance, simplified.</div>
                 </div>
-                <p>The next generation of classroom and workforce management, powered by advanced biometric AI. Accurate, effortless, and proxy-proof.</p>
+                <p class="footer-desc">Advanced multi-face computer vision and sequential voice biometrics engineered to eliminate proxy attendance in modern institutions.</p>
             </div>
 
             <div class="footer-links">
@@ -1170,9 +1236,17 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Present Call AI. An intelligent attendance platform powered by AI.</p>
-            <div style="display:flex; gap:16px;">
-                <a href="#topNavbar">Back to Top &uarr;</a>
+            <div class="footer-copyright">
+                &copy; 2026 Present Call. All rights reserved.
+            </div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <span class="footer-dot">&bull;</span>
+                <a href="#">Terms of Service</a>
+                <span class="footer-dot">&bull;</span>
+                <a href="#">Security</a>
+                <span class="footer-dot">&bull;</span>
+                <a href="#topNavbar" class="footer-back-to-top">Back to Top &uarr;</a>
             </div>
         </div>
     </footer>
@@ -1186,8 +1260,18 @@
         </div>
     </div>
 
-    <!-- Floating Real-Time Toast Notifications Container (Section 8) -->
-    <div class="toast-container" id="toastContainer"></div>
+    <!-- Floating Real-Time Toast Notifications Container (Positioned to avoid Back to Top collision) -->
+    <div class="toast-container" id="toastContainer" role="region" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Adaptive Device-Aware Back to Top Button (Sections 11 - 16) -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top" title="Back to top" aria-hidden="true" tabindex="-1">
+        <span class="back-to-top-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </span>
+        <span class="back-to-top-tooltip">Back to top</span>
+    </button>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
