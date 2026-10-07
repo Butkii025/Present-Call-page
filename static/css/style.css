@@ -2552,6 +2552,30 @@ button, input, select {
     transition: color var(--transition-fast);
 }
 
+.footer-email-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    transition: all var(--transition-fast);
+}
+
+.footer-email-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.footer-email-link:hover {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #ffffff;
+}
+
 .footer-legal a:hover {
     color: #ffffff;
 }
