@@ -11,13 +11,10 @@
 </head>
 
 <body>
-    <!-- Top Navigation Bar -->
     <nav class="navbar" id="topNavbar">
-        <!-- Zone 1: Brand Group (Logo -> Present Call -> AI 2.0) -->
-        <a href="#" class="logo" aria-label="Present Call AI 2.0 Home">
+        <a href="#" class="logo" aria-label="Present Call Home">
             <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call Logo" class="logo-img">
             <span class="logo-text">Present Call</span>
-            <span class="logo-badge">AI 2.0</span>
         </a>
 
         <!-- Mobile Navigation Backdrop Overlay -->
@@ -29,7 +26,6 @@
                 <div class="nav-mobile-brand">
                     <img src="{{ url_for('static', filename='img/app_logo.png') }}" alt="Present Call" class="nav-mobile-logo">
                     <span>Present Call</span>
-                    <span class="logo-badge">AI 2.0</span>
                 </div>
                 <button class="nav-mobile-close" id="navMobileClose" aria-label="Close navigation menu">&times;</button>
             </div>
@@ -69,7 +65,7 @@
     <header class="hero">
         <div class="badge">
             <span class="badge-dot"></span>
-            AI Biometrics Engine v2.4 Active &bull; Supabase Realtime Sync
+            AI Biometrics Engine with Anti-spoofing &bull; Realtime Sync
         </div>
 
         <h1>AI-Powered Attendance Management for <span>Modern Institutions</span></h1>
@@ -94,7 +90,7 @@
         <!-- Metrics Strip -->
         <div class="hero-metrics">
             <div class="metric-card">
-                <div class="metric-value">99.8<span>%</span></div>
+                <div class="metric-value">95.8<span>%</span></div>
                 <div class="metric-label">Biometric Precision</div>
             </div>
             <div class="metric-card">
@@ -127,16 +123,16 @@
             <div class="saas-window">
                 <!-- Browser-like Top Chrome -->
                 <div class="window-topbar">
-                    <div class="window-dots">
+                    <!-- <div class="window-dots">
                         <span class="window-dot dot-red"></span>
                         <span class="window-dot dot-yellow"></span>
                         <span class="window-dot dot-green"></span>
-                    </div>
+                    </div> -->
                     <div class="window-title">
                         <span class="icon" style="width:14px; height:14px; color:#38bdf8;">
                             <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         </span>
-                        <span>app.presentcall.ai &mdash; Production Attendance Hub</span>
+                        <span>presentcall: Face Sees. Voice Confirms</span>
                     </div>
                     <div class="window-status-pill">
                         <span class="badge-dot" style="width:6px; height:6px;"></span>
@@ -203,9 +199,9 @@
 
                         <div class="sidebar-footer">
                             <div class="user-profile-badge">
-                                <div class="user-avatar">DR</div>
+                                <div class="user-avatar">K</div>
                                 <div class="user-info">
-                                    <div class="user-name">Dr. Rajesh Kumar</div>
+                                    <div class="user-name">Dr. Kiran</div>
                                     <div class="user-role">CS Department Head</div>
                                 </div>
                             </div>
@@ -580,13 +576,13 @@
                                                 </td>
                                             </tr>
 
-                                            <tr data-name="Devendra Mehta" data-id="CS2026-033" data-status="absent">
+                                            <tr data-name="Rashmika Yadav" data-id="CS2026-033" data-status="absent">
                                                 <td>
                                                     <div class="student-col">
                                                         <div class="student-avatar" style="background:#fee2e2; color:#b91c1c;">DM</div>
                                                         <div class="student-name-block">
-                                                            <span class="student-name">Devendra Mehta</span>
-                                                            <span class="student-email">d.mehta@college.edu</span>
+                                                            <span class="student-name">Rashmika Yadav</span>
+                                                            <span class="student-email">rashmika.yadav@presentcall.ai</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -604,18 +600,18 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-row-actions">
-                                                        <button class="btn-table-action" onclick="showToast('Absence notification queued for Devendra Mehta', 'error')">Notify</button>
+                                                        <button class="btn-table-action" onclick="showToast('Absence notification queued for Rashmika Yadav', 'error')">Notify</button>
                                                     </div>
                                                 </td>
                                             </tr>
 
-                                            <tr data-name="Simran Kaur" data-id="CS2026-048" data-status="pending">
+                                            <tr data-name="Astha Maurya" data-id="CS2026-048" data-status="pending">
                                                 <td>
                                                     <div class="student-col">
                                                         <div class="student-avatar" style="background:#e0e7ff; color:#4338ca;">SK</div>
                                                         <div class="student-name-block">
-                                                            <span class="student-name">Simran Kaur</span>
-                                                            <span class="student-email">simran.k@college.edu</span>
+                                                            <span class="student-name">Astha Maurya</span>
+                                                            <span class="student-email">astha.maurya@presentcall.ai</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -633,7 +629,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-row-actions">
-                                                        <button class="btn-table-action" onclick="showToast('Biometric manual review approved for Simran Kaur', 'success')">Verify</button>
+                                                        <button class="btn-table-action" onclick="showToast('Biometric manual review approved for Astha Maurya', 'success')">Verify</button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -833,7 +829,7 @@
                                     <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
                                         <div class="student-avatar" style="width:44px; height:44px; background:#fee2e2; color:#b91c1c;">DM</div>
                                         <div>
-                                            <div style="font-weight:700; color:var(--pc-text-heading);">Devendra Mehta</div>
+                                            <div style="font-weight:700; color:var(--pc-text-heading);">Rashmika Yadav</div>
                                             <div style="font-size:0.75rem; color:var(--pc-text-muted);">ID: CS2026-033 &bull; CS-401</div>
                                         </div>
                                     </div>
@@ -1237,16 +1233,10 @@
 
         <div class="footer-bottom">
             <div class="footer-copyright">
-                &copy; 2026 Present Call. All rights reserved.
+                &copy; 2026 Present Call. Multi-Modal Biometric Framework for Proxy-Resistant.
             </div>
             <div class="footer-legal">
-                <a href="#">Privacy Policy</a>
-                <span class="footer-dot">&bull;</span>
-                <a href="#">Terms of Service</a>
-                <span class="footer-dot">&bull;</span>
-                <a href="#">Security</a>
-                <span class="footer-dot">&bull;</span>
-                <a href="#topNavbar" class="footer-back-to-top">Back to Top &uarr;</a>
+                <a >Present Call : Face Sees. Voice Confirms.</a>
             </div>
         </div>
     </footer>
@@ -1270,7 +1260,7 @@
                 <polyline points="18 15 12 9 6 15"></polyline>
             </svg>
         </span>
-        <span class="back-to-top-tooltip">Back to top</span>
+        <!-- <span class="back-to-top-tooltip">Back to top</span> -->
     </button>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
