@@ -553,14 +553,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const openNavMenu = () => {
         if (navLinks) navLinks.classList.add('mobile-open');
         if (navBackdrop) navBackdrop.classList.add('active');
-        if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+        if (navToggle) {
+            navToggle.classList.add('is-open');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navToggle.setAttribute('aria-label', 'Close navigation menu');
+        }
         document.body.classList.add('nav-menu-open');
     };
 
     const closeNavMenu = () => {
         if (navLinks) navLinks.classList.remove('mobile-open');
         if (navBackdrop) navBackdrop.classList.remove('active');
-        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        if (navToggle) {
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation menu');
+        }
         document.body.classList.remove('nav-menu-open');
     };
 
